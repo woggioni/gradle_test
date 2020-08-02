@@ -1,0 +1,9 @@
+apply plugin: 'application'
+
+dependencies {
+    compile group:"co.paralleluniverse", name: "quasar-core", version: "0.7.13_r3", classifier: null
+}
+
+application {
+    mainClass = 'net.corda.A'
+}

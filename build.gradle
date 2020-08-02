@@ -1,0 +1,28 @@
+buildscript {
+    ext.artifactory_contextUrl = 'https://software.r3.com/artifactory'
+}
+
+allprojects {
+    apply plugin: 'java'
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        jcenter()
+        maven { url "${artifactory_contextUrl}/corda-dependencies" }
+        maven { url 'https://repo.gradle.org/gradle/libs-releases' }
+        maven { url "${artifactory_contextUrl}/corda-dev" }
+    }
+}
+
+apply plugin: 'application'
+
+dependencies {
+    compile project(':a')
+    compile project(':b')
+    compile group:"co.paralleluniverse", name: "quasar-core", version: "0.7.12_r3", classifier: "jdk6"
+}
+
+application {
+    mainClass = 'net.corda.Main'
+}

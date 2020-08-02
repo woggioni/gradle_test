@@ -1,0 +1,3 @@
+dependencies {
+    compile group:"co.paralleluniverse", name: "quasar-core", version: "0.7.11_r3", classifier: 'jdk8'
+}
